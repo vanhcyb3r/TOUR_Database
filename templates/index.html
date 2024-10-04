@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tour du lịch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý tour du lịch</h1>
+
+        <!-- Form thêm tour mới -->
+        <h2>Thêm tour mới</h2>
+        <form action="/them-tour" method="POST">
+            <label for="ten_tour">Tên tour:</label>
+            <input type="text" id="ten_tour" name="ten_tour" required><br>
+
+            <label for="noi_xuat_phat">Nơi xuất phát:</label>
+            <input type="text" id="noi_xuat_phat" name="noi_xuat_phat" required><br>
+
+            <label for="noi_den">Nơi đến:</label>
+            <input type="text" id="noi_den" name="noi_den" required><br>
+
+            <label for="ngay_xuat_phat">Ngày xuất phát:</label>
+            <input type="date" id="ngay_xuat_phat" name="ngay_xuat_phat" required><br>
+
+            <label for="gia_tour">Giá tour:</label>
+            <input type="number" id="gia_tour" name="gia_tour" step="0.01" required><br>
+
+            <label for="so_luong_ve">Số lượng vé:</label>
+            <input type="number" id="so_luong_ve" name="so_luong_ve" required><br>
+
+            <button type="submit">Thêm tour</button>
+        </form>
+
+        <!-- Danh sách các tour hiện có -->
+        <h2>Danh sách tour</h2>
+        <table>
+            <tr>
+                <th>Mã Tour</th>
+                <th>Tên Tour</th>
+                <th>Nơi Xuất Phát</th>
+                <th>Nơi Đến</th>
+                <th>Ngày Xuất Phát</th>
+                <th>Giá</th>
+                <th>Số Lượng Vé</th>
+                <th>Hành Động</th>
+            </tr>
+            {% for tour in tours %}
+            <tr>
+                <td>{{ tour.ma_tour }}</td>
+                <td>{{ tour.ten_tour }}</td>
+                <td>{{ tour.noi_xuat_phat }}</td>
+                <td>{{ tour.noi_den }}</td>
+                <td>{{ tour.ngay_xuat_phat }}</td>
+                <td>{{ tour.gia_tour }}</td>
+                <td>{{ tour.so_luong_ve }}</td>
+                <td>
+                    <a href="/sua-tour/{{ tour.ma_tour }}">Sửa</a> |
+                    <a href="/xoa-tour/{{ tour.ma_tour }}">Xóa</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
