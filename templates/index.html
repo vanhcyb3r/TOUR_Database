@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Quản lý tour du lịch</h1>
-
+        
         <!-- Form thêm tour mới -->
         <h2>Thêm tour mới</h2>
         <form action="/them-tour" method="POST">
@@ -31,11 +31,14 @@
             <label for="so_luong_ve">Số lượng vé:</label>
             <input type="number" id="so_luong_ve" name="so_luong_ve" required><br>
 
-            <button type="submit">Thêm tour</button>
+            <button type="submit">THÊM TOUR</button>
         </form>
 
         <!-- Danh sách các tour hiện có -->
-        <h2>Danh sách tour</h2>
+        <!-- <a href="/danh-sach">SỬA TOUR</a> -->
+        <a href="/danh-sach"><button>SỬA TOUR</button></a>
+        <h2>Danh sách tour hiện có</h2>
+        
         <table>
             <tr>
                 <th>Mã Tour</th>
@@ -43,9 +46,8 @@
                 <th>Nơi Xuất Phát</th>
                 <th>Nơi Đến</th>
                 <th>Ngày Xuất Phát</th>
-                <th>Giá</th>
+                <th>Giá vé</th>
                 <th>Số Lượng Vé</th>
-                <th>Hành Động</th>
             </tr>
             {% for tour in tours %}
             <tr>
@@ -56,10 +58,7 @@
                 <td>{{ tour.ngay_xuat_phat }}</td>
                 <td>{{ tour.gia_tour }}</td>
                 <td>{{ tour.so_luong_ve }}</td>
-                <td>
-                    <a href="/sua-tour/{{ tour.ma_tour }}">Sửa</a> |
-                    <a href="/xoa-tour/{{ tour.ma_tour }}">Xóa</a>
-                </td>
+                
             </tr>
             {% endfor %}
         </table>

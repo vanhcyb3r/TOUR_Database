@@ -87,5 +87,26 @@ def xoa_tour(ma_tour):
 
     return redirect('/')
 
+@app.route('/danh-sach', methods=['GET'])
+def danh_sach_tour():
+    ten_tour = request.args.get('ten_tour', '')
+
+    connection = create_connection()
+    cursor = connection.cursor(dictionary=True)
+
+    # Nếu có yêu cầu tìm kiếm, sử dụng LIKE để tìm theo tên
+    if ten_tour:
+        query = "SELECT * FROM Tour WHERE ten_tour LIKE %s"
+        cursor.execute(query, ('%' + ten_tour + '%',))
+    else:
+        query = "SELECT * FROM Tour"
+        cursor.execute(query)
+
+    tours = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return render_template('list.html', tours=tours)
 if __name__ == '__main__':
     app.run(debug=True)
