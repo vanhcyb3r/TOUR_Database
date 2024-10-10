@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 
+
 app = Flask(__name__)
 
 # Hàm kết nối với MySQL
@@ -9,7 +10,7 @@ def create_connection():
         host='localhost',
         database='quanlytourdulich',
         user='root',  # Tên người dùng MySQL của bạn
-        password='123456789'
+        password='15082003Aa'
     )
     return connection
 

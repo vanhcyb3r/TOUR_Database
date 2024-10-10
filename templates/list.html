@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Danh sách tour</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1>Danh sách các tour</h1>
+      <h1>Danh sách các tour</h1>
 
-        <!-- Form tìm kiếm tour -->
-        <form action="/danh-sach" method="GET">
-            <label for="ten_tour">Tìm kiếm theo tên tour:</label>
-            <input type="text" id="ten_tour" name="ten_tour" placeholder="Nhập tên tour" value="{{ request.args.get('ten_tour', '') }}">
-            <button type="submit">Tìm kiếm</button>
-        </form>
+      <!-- Form tìm kiếm tour -->
+      <form action="/danh-sach" method="GET">
+        <label for="ten_tour" style="margin-bottom:10px; font-size:23px">Tìm kiếm tour</label>
+        <input
+          type="text"
+          id="ten_tour"
+          name="ten_tour"
+          placeholder="Nhập tên tour"
+          value="{{ request.args.get('ten_tour', '') }}"
+        />
+        <button type="submit">Tìm kiếm</button>
+      </form>
 
-        <!-- Hiển thị danh sách tour -->
-        <h2>Kết quả:</h2>
-        <ul>
-            {% if tours %}
-                {% for tour in tours %}
-                    <li>
-                        <strong>{{ tour.ten_tour }}</strong> - Nơi xuất phát: {{ tour.noi_xuat_phat }} - Nơi đến: {{ tour.noi_den }} - Giá: {{ tour.gia_tour }} VNĐ
-                        <!-- Link chỉnh sửa -->
-                        <a href="/sua-tour/{{ tour.ma_tour }}"> Chỉnh sửa </a>
-                        <a href="/xoa-tour/{{ tour.ma_tour }}"> Xóa </a>
-                        <br>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <p>Không có kết quả phù hợp.</p>
-            {% endif %}
-        </ul>
-
+      <!-- Hiển thị danh sách tour -->
+      <h2>Kết quả:</h2>
+      <ul>
+        {% if tours %} {% for tour in tours %}
+        <div class="mota">
+        <li>
+          <strong>{{ tour.ten_tour }}</strong> - Nơi xuất phát: {{
+          tour.noi_xuat_phat }} - Nơi đến: {{ tour.noi_den }} - Giá: {{
+          tour.gia_tour }} VNĐ
+          <!-- Link chỉnh sửa --> 
+        </li>
+        <div class="btn-sua-xoa">
+        <a href="/sua-tour/{{ tour.ma_tour }}"> <button>Chỉnh sửa</button> </a>
+        <a href="/xoa-tour/{{ tour.ma_tour }}"><button> Xóa </button></a>
+        </div>
+      </div>
+        {% endfor %} {% else %}
+        <div class="failure">
+          <p>Không có kết quả phù hợp</p>
+        </div>
+        {% endif %}
+      </ul>
     </div>
-</body>
+  </body>
 </html>
