@@ -14,6 +14,16 @@ def create_connection():
     )
     return connection
 
+def chuanHoa(s):
+    s=str(s)
+    ans = ""
+    k = -2
+    for i in range(len(s)) :
+        ans = s[-i - 1] + ans
+        if k % 3 == 0 : ans = "," + ans
+        k += 1
+    return ans.strip(',')
+
 # Trang chủ, hiển thị danh sách tour
 @app.route('/')
 def index():
@@ -22,6 +32,8 @@ def index():
     cursor.execute("SELECT * FROM Tour")
     tours = cursor.fetchall()
     connection.close()
+    for tour in tours:
+        tour['gia_tour'] = chuanHoa(tour['gia_tour'])
     return render_template('index.html', tours=tours)
 
 # Thêm tour

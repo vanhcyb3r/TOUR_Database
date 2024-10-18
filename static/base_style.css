@@ -1,0 +1,106 @@
+body{
+  margin:0;
+  /* display:flex;
+  justify-content:center;
+  align-items:center; */
+  background-color: #FFDDD2;
+  font-family: sans-serif;
+}
+.container{
+  width:1220px;
+  background: linear-gradient(45deg,#FFDDD2,#EEEAE8,#EEEAE8);
+  margin:0 auto;
+}
+ul{
+  list-style-type: none;
+}
+p{
+  font-size:25px;
+}
+.copyright{
+  display: flex;
+  justify-content: space-between;
+}
+.social ul{
+  display: flex;
+}
+.social ul li{
+  margin-left: 15px;
+  margin-right: 8px;
+}
+a{
+  text-decoration: none;
+  color:black;
+  cursor: pointer;
+  font-size: 18px;
+}
+.diemden{
+  display: flex;
+  flex-direction: column;
+  
+}
+.footer .content{
+   display: flex;
+   justify-content: space-between;
+}
+.diem_denxx{
+  display: flex;
+}
+.footer .content p{
+   margin-left:35px;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.navigation ul{
+  display: flex;
+}
+.nhap_xuat ul{
+  display: flex;
+}
+.nhap_xuat ul li{
+  margin-left: 15px;
+  margin-right: 5px;
+}
+.navigation ul li{
+  margin-left: 25px;
+  margin-right: 10px;
+}
+.navigation{
+  margin-top: 20px;
+}
+.nhap_xuat{
+  margin-top: 10px;
+}
+.logo{
+  cursor: pointer;
+  font-weight: bold;
+}
+.navigation ul li:first-child{
+  font-weight: bold;
+}
+.nhap_xuat ul li a{
+  display: block;
+  padding: 10px 15px;
+  background-color: #6558C8;
+  color: #fff;
+  border-radius: 17px;
+}
+.logo img{
+  margin-right: 4px;
+}
+.footer .copyright{
+  background-color: #0F182F;
+  color: #fff;
+}
+.footer .copyright img{
+ cursor: pointer;
+}
+.logo p{
+  font-size: 27px;
+}

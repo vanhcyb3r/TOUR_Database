@@ -1,0 +1,34 @@
+body{
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 980px;
+  margin: 0 auto;
+  background-color: gray;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial,  sans-serif;
+}
+.header .menu{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  list-style-type: none;
+}
+.header .menu li{
+  margin-right: 20px;
+}
+.header .menu li a{
+  text-decoration: none;
+  color: #ddd;
+}
+
+.header .menu li a:hover{
+  color:black;
+}
