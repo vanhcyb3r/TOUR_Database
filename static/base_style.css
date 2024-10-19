@@ -104,3 +104,10 @@ a{
 .logo p{
   font-size: 27px;
 }
+.nhap_xuat ul li:first-child a{
+  background-color:#EEEAE8;
+  color:black;
+}
+.nhap_xuat ul li a:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
